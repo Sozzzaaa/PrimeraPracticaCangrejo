@@ -2,10 +2,9 @@
   {
     "nombre": "Ana López",
     "correo_electronico": "ana.lopez@example.com",
-    "pregunta_seguridad": {
-      "pregunta": "¿Cuál es el nombre de tu primera mascota?",
-      "respuesta": "Pelusa"
-    },
+    "pregunta": "¿Cuál es el nombre de tu primera mascota?",
+    "respuesta": "Pelusa"
+
     "contrasenia": "AnaL#2025"
   },
   {
