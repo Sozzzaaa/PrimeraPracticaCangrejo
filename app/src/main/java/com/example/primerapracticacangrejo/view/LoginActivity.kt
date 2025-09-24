@@ -1,5 +1,6 @@
 package com.example.primerapracticacangrejo.view
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -11,15 +12,32 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.primerapracticacangrejo.R
 import com.example.primerapracticacangrejo.databinding.ActivityMainBinding
 import model.UserProvider
+import java.io.File
 
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private fun copyJsonToInternal(context: Context) {
+        val file = File(context.filesDir, "users.json")
+        if (!file.exists()) {
+            context.assets.open("users.json").use { input ->
+                file.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+        }
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        copyJsonToInternal(this) // ✅ ensure internal JSON exists
+        UserProvider.readUsersFromAssets(this)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -28,12 +46,12 @@ class LoginActivity : AppCompatActivity() {
         UserProvider.listU.forEach {
             Log.d("LoginDebug", "User: ${it.email}, Pass: ${it.passwd}")
         }
-        fun isValidEmail(email: String): Boolean {
-            val emailRegex = Regex("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")
-            return emailRegex.matches(email)
+
+
+        binding.textViewOlvidCont.setOnClickListener {
+            val intent = Intent(this, PasswordReccoveryEmailActivity::class.java)
+            startActivity(intent)
         }
-
-
 
         binding.buttonLogin.setOnClickListener {
             val email = binding.editTextTextEmailAddress.text.toString().trim()
@@ -47,7 +65,7 @@ class LoginActivity : AppCompatActivity() {
             // Load users
             UserProvider.readUsersFromAssets(this)
 
-            if (!isValidEmail(email)) {
+            if (!UserProvider.isValidEmail(email)) {
                 Toast.makeText(this, "Favor de Ingresar un correo valido!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }

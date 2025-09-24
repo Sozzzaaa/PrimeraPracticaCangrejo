@@ -1,21 +1,53 @@
 package com.example.primerapracticacangrejo.view
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.primerapracticacangrejo.R
+
+import com.example.primerapracticacangrejo.databinding.ActivityPasswordReccoveryEmailBinding
+import model.UserProvider
 
 class PasswordReccoveryEmailActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityPasswordReccoveryEmailBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
+        binding = ActivityPasswordReccoveryEmailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         enableEdgeToEdge()
-        setContentView(R.layout.activity_password_reccovery_email)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+
+        binding.buttonLogin.setOnClickListener {
+            val email = binding.editTextTextEmailAddress.text.toString().trim()
+
+            if (!UserProvider.isValidEmail(email)) {
+                Toast.makeText(this, "Favor de Ingresar un correo valido!", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            }
+            else
+            {
+                if (UserProvider.emailExists(email))
+                {
+                    val intent = Intent(this, PasswordRecoveryQuestionActivity::class.java)
+                    intent.putExtra("email_key", email)
+                    startActivity(intent)
+                    finish()
+                }
+                else
+                {
+                    Toast.makeText(this, "El correo ingresado no corresponde a ninguna cuenta", Toast.LENGTH_SHORT)
+                        .show()
+                    return@setOnClickListener
+                }
+            }
         }
+
+
+
     }
 }
