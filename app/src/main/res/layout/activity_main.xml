@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewTitulo"
         android:layout_width="385dp"
         android:layout_height="91dp"
         android:fontFamily="@font/aclonica"
@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="0.143" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewSubtitulo"
         android:layout_width="307dp"
         android:layout_height="51dp"
         android:fontFamily="sans-serif-medium"
@@ -79,33 +79,33 @@
         app:layout_constraintVertical_bias="0.649" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="185dp"
-        android:layout_height="19dp"
-        android:textColor="#F44336"
+        android:id="@+id/textViewIngCorreo"
+        android:layout_width="205dp"
+        android:layout_height="42dp"
         android:text="Ingresa tu correo electronico"
+        android:textColor="#F44336"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.345"
+        app:layout_constraintHorizontal_bias="0.378"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintVertical_bias="0.432" />
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="142dp"
-        android:layout_height="16dp"
+        android:id="@+id/textViewIngCont"
+        android:layout_width="159dp"
+        android:layout_height="33dp"
         android:text="Ingresa tu contraseña"
         android:textColor="#F44336"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.289"
+        app:layout_constraintHorizontal_bias="0.309"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.59" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonLogin"
         android:layout_width="180dp"
         android:layout_height="56dp"
         android:text="A vender cangrejos!"
@@ -118,7 +118,7 @@
         app:layout_constraintVertical_bias="0.841" />
 
     <TextView
-        android:id="@+id/textViewGoToSecondActivity"
+        android:id="@+id/textViewOlvidCont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"

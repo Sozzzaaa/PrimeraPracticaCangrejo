@@ -3,44 +3,35 @@
     "nombre": "Ana López",
     "correo_electronico": "ana.lopez@example.com",
     "pregunta": "¿Cuál es el nombre de tu primera mascota?",
-    "respuesta": "Pelusa"
-
+    "respuesta": "Pelusa",
     "contrasenia": "AnaL#2025"
   },
   {
     "nombre": "Carlos Martínez",
     "correo_electronico": "carlos.martinez@example.com",
-    "pregunta_seguridad": {
-      "pregunta": "¿Cuál es tu ciudad de nacimiento?",
-      "respuesta": "Guadalajara"
-    },
+    "pregunta": "¿Cuál es tu ciudad de nacimiento?",
+    "respuesta": "Guadalajara",
     "contrasenia": "C4rlos$89"
   },
   {
     "nombre": "Sofía Ramírez",
     "correo_electronico": "sofia.ramirez@example.com",
-    "pregunta_seguridad": {
-      "pregunta": "¿Cuál fue tu primer colegio?",
-      "respuesta": "San Miguel"
-    },
+    "pregunta": "¿Cuál fue tu primer colegio?",
+    "respuesta": "San Miguel",
     "contrasenia": "SofiA_21"
   },
   {
     "nombre": "Jorge Herrera",
     "correo_electronico": "jorge.herrera@example.com",
-    "pregunta_seguridad": {
-      "pregunta": "¿Cuál es tu comida favorita?",
-      "respuesta": "Tacos"
-    },
+    "pregunta": "¿Cuál es tu comida favorita?",
+    "respuesta": "Tacos",
     "contrasenia": "Jorge#7$9"
   },
   {
     "nombre": "Lucía Fernández",
     "correo_electronico": "lucia.fernandez@example.com",
-    "pregunta_seguridad": {
-      "pregunta": "¿Cuál es el nombre de tu mejor amigo de la infancia?",
-      "respuesta": "Miguel"
-    },
+    "pregunta": "¿Cuál es el nombre de tu mejor amigo de la infancia?",
+    "respuesta": "Miguel",
     "contrasenia": "LuciA_2025"
   }
 ]
