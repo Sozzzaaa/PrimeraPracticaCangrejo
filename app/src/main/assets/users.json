@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Ana López",
+    "email": "ana.lopez@example.com",
+    "question": "¿Cuál es el nombre de tu primera mascota?",
+    "answer": "Pelusa",
+    "passwd": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3"
+  },
+  {
+    "name": "Carlos Martínez",
+    "email": "carlos.martinez@example.com",
+    "question": "¿Cuál es tu ciudad de nacimiento?",
+    "answer": "Guadalajara",
+    "passwd": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3"
+  },
+  {
+    "name": "Sofía Ramírez",
+    "email": "sofia.ramirez@example.com",
+    "question": "¿Cuál fue tu primer colegio?",
+    "answer": "San Miguel",
+    "passwd": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3"
+  },
+  {
+    "name": "Jorge Herrera",
+    "email": "jorge.herrera@example.com",
+    "question": "¿Cuál es tu comida favorita?",
+    "answer": "Tacos",
+    "passwd": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3"
+  },
+  {
+    "name": "Lucía Fernández",
+    "email": "lucia.fernandez@example.com",
+    "question": "¿Cuál es el nombre de tu mejor amigo de la infancia?",
+    "answer": "Miguel",
+    "passwd": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3"
+  }
+]
