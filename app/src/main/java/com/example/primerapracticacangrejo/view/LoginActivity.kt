@@ -76,6 +76,7 @@ class LoginActivity : AppCompatActivity() {
 
                 if (isValid) {
                     val intent = Intent(this, CompletedLoginActivity::class.java)
+                    intent.putExtra("email_key", email)
                     startActivity(intent)
                     finish()
                 } else {

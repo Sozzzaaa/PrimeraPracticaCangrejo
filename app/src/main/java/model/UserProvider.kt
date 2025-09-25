@@ -35,6 +35,15 @@ class UserProvider {
             return null
         }
 
+        fun getUsernameByEmail(email: String): String? {
+            listU.forEach { user ->
+                if (user.email == email) {
+                    return user.name
+                }
+            }
+            return null
+        }
+
         fun readUsersFromAssets(context: Context) {
             try {
                 val file = File(context.filesDir, "users.json")
