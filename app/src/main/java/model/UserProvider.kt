@@ -8,7 +8,9 @@ import java.security.MessageDigest
 
 class UserProvider {
     companion object {
+
         lateinit var listU: List<UserModel>
+
         fun copyJsonToInternal(context: Context) {
             val file = File(context.filesDir, "users.json")
             if (!file.exists()) {
@@ -26,6 +28,7 @@ class UserProvider {
             val emailRegex = Regex("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")
             return emailRegex.matches(email)
         }
+
         fun getAnswerByEmail(email: String): String? {
             listU.forEach { user ->
                 if (user.email == email) {
@@ -61,7 +64,10 @@ class UserProvider {
 
         fun updatePassword(context: Context, email: String, newPassword: String) {
             listU = listU.map { user ->
-                if (user.email == email) user.copy(passwd = sha256(newPassword)) else user
+                if (user.email == email)
+                    user.copy(passwd = sha256(newPassword))
+                else
+                    user
             }
             val file = File(context.filesDir, "users.json")
             val gson = Gson()
@@ -95,6 +101,7 @@ class UserProvider {
             }
             return false
         }
+
         fun emailExists(email: String): Boolean {
             listU.forEach { user ->
                 if (user.email == email) {
@@ -102,6 +109,18 @@ class UserProvider {
                 }
             }
             return false
+        }
+
+        fun isRepeatingPassword(email: String, currentPassword: String): Boolean {
+            listU.forEach { user ->
+                if (user.email == email) {
+                    if (sha256(currentPassword) == user.passwd) {
+                        return true;
+                    }
+                }
+
+            }
+            return false;
         }
     }
 }

@@ -18,7 +18,7 @@ import java.io.File
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private fun copyJsonToInternal(context: Context) {
+    /*private fun copyJsonToInternal(context: Context) {
         val file = File(context.filesDir, "users.json")
         if (!file.exists()) {
             context.assets.open("users.json").use { input ->
@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
-    }
+    }*/
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        copyJsonToInternal(this) // ✅ ensure internal JSON exists
+        UserProvider.copyJsonToInternal(this)
         UserProvider.readUsersFromAssets(this)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -57,7 +57,6 @@ class LoginActivity : AppCompatActivity() {
             val email = binding.editTextTextEmailAddress.text.toString().trim()
             val password = binding.editTextTextPassword.text.toString().trim()
 
-           // Log.d("LoginDebug", "Input email: '$email', Input password: '$password'")
 
             UserProvider.listU.forEach {
                 Log.d("LoginDebug", "User: ${it.email}, Pass: ${it.passwd}")

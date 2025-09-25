@@ -55,16 +55,24 @@ class PasswordRecoveryNewPWActivity : AppCompatActivity() {
                     return@setOnClickListener
                 }
 
-                UserProvider.updatePassword(this, email, newPassword)  // save new password
+                if(UserProvider.isRepeatingPassword(email,newPassword))
+                {
+                    Toast.makeText(this, "No puedes cambiar tu contraseña a una anterior!", Toast.LENGTH_SHORT).show()
+                }
+                else
+                {
+                    UserProvider.updatePassword(this, email, newPassword)
 
-                Toast.makeText(this, "Contraseña actualizada! Seras redireccionado a login", Toast.LENGTH_SHORT).show()
-                Handler(Looper.getMainLooper()).postDelayed({
-                    // Code to run after delay
-                    val intent = Intent(this, LoginActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }, 3000)
+                    Toast.makeText(this, "Contraseña actualizada! Seras redireccionado a login", Toast.LENGTH_SHORT).show()
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        // Code to run after delay
+                        val intent = Intent(this, LoginActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }, 3000)
+                }
             }
+
 
         }
         enableEdgeToEdge()
