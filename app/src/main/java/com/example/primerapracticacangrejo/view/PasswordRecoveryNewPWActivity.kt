@@ -34,27 +34,37 @@ class PasswordRecoveryNewPWActivity : AppCompatActivity() {
 
         binding.buttonLogin.setOnClickListener {
             val newPassword = binding.editTextAnswer.text.toString().trim()
-
-            if (!isValidPassword(newPassword)) {
-                Toast.makeText(
-                    this,
-                    "Tu contraseña no cumple los requisitos",
-                    Toast.LENGTH_SHORT
-                ).show()
-                return@setOnClickListener
+            val newPasswordConfirmed = binding.editTextAnswer2.text.toString().trim()
+            if(newPasswordConfirmed == "" || newPassword == "")
+            {
+                Toast.makeText(this, "No puedes dejar ningun campo vacio!", Toast.LENGTH_SHORT).show()
             }
+            else if (newPasswordConfirmed != newPassword)
+            {
+                Toast.makeText(this, "Lass password ingresadas nos coinciden!", Toast.LENGTH_SHORT).show()
 
-            UserProvider.updatePassword(this, email, newPassword)  // save new password
+            }
+            else
+            {
+                if (!isValidPassword(newPassword)) {
+                    Toast.makeText(
+                        this,
+                        "Tu contraseña no cumple los requisitos",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return@setOnClickListener
+                }
 
-            Toast.makeText(this, "Contraseña actualizada! Seras redireccionado a login", Toast.LENGTH_SHORT).show()
-            Handler(Looper.getMainLooper()).postDelayed({
-                // Code to run after delay
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-                finish()
-            }, 3000)
+                UserProvider.updatePassword(this, email, newPassword)  // save new password
 
-
+                Toast.makeText(this, "Contraseña actualizada! Seras redireccionado a login", Toast.LENGTH_SHORT).show()
+                Handler(Looper.getMainLooper()).postDelayed({
+                    // Code to run after delay
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }, 3000)
+            }
 
         }
         enableEdgeToEdge()
